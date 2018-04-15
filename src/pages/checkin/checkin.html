@@ -1,0 +1,35 @@
+<!--
+  Generated template for the CheckinPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Check-In</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-grid>
+      <ion-row col-12 > <ion-col col-2></ion-col><ion-col col-8><h3>{{datetime| date:"dd MMMM yyyy HH:mm"}}</h3></ion-col><ion-col col-2></ion-col></ion-row>
+      <ion-item>
+      
+          <ion-datetime *ngIf="!datetime" displayFormat="MM/DD/YYYY HH:mm" disabled="true" name="date"[(ngModel)]="datetime"></ion-datetime>
+        </ion-item> 
+        <ion-row>
+          <ion-col col-12> <button (click)='checkout();' col-12 ion-button color="light">Checkin</button></ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-12><button  col-3 ion-button color="secondary">Break</button>
+  
+            <button   col-3 ion-button>Guard Tour</button>
+            <button  (click)="presentConfirm()" col-3 ion-button color="danger">Exit</button></ion-col>
+        </ion-row>
+      </ion-grid>
+ 
+  
+</ion-content>

@@ -1,0 +1,61 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login
+        <!-- <ion-img  width="80" height="40" src="../../assets/imgs/image-logo.png"></ion-img>  -->
+        <!-- <img src=”../../assets/imgs/image-logo.png”> -->
+        <!-- <ion-img  src="../../assets/imgs/image-logo.png"></ion-img> -->
+        <ion-icon name="heart"></ion-icon>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- <ion-content padding>
+  
+   </ion-card>
+    <button ion-button (click)="takePicture()">Take a Picture</button>
+</ion-content> -->
+
+<ion-content padding>
+    
+   
+  <form name="myForm"  (submit)="doLogin()"   >
+      <ion-grid>
+          <!-- <ion-row></ion-row> -->
+          <ion-row col-12 > <ion-img  width="80"  height="40" src="../../assets/imgs/image-logo.png"></ion-img> </ion-row>
+            <!-- <ion-col col-12> <button  col-12 ion-button color="light">Checkin</button></ion-col> -->
+            <ion-row > <ion-col col-12> <button  *ngIf="!base64Image"  col-12 (click)='takePicture();' ion-button round outline>+</button></ion-col>
+          </ion-row>
+      <ion-label stacked>Picture</ion-label>
+    
+      </ion-grid>
+
+      <ion-card *ngIf="base64Image" >
+          <ion-card-content>
+             Picture:
+            <img [src]="base64Image"  *ngIf="base64Image" />
+          </ion-card-content>
+        </ion-card>
+        <ion-row col-12 > <ion-col col-2></ion-col><ion-col col-8><h3>{{datetime| date:"dd MMMM yyyy HH:mm"}}</h3></ion-col><ion-col col-2></ion-col></ion-row>
+          
+        <ion-item>
+          
+          <ion-datetime *ngIf="!datetime" displayFormat="MM/DD/YYYY HH:mm" disabled="true" name="date"[(ngModel)]="datetime"></ion-datetime>
+        </ion-item>
+    <ion-item>
+ 
+      <ion-label stacked>Username</ion-label>
+      <ion-input [(ngModel)]="loginData.username" name="username" type="text" placeholder="Username" required ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Password</ion-label>
+      <ion-input [(ngModel)]="loginData.password" name="password" type="password" placeholder="Password" required></ion-input>
+    </ion-item>
+    <button  ion-button block type="submit"  > Login
+      </button>
+        <!-- <button  ion-button block type="button" >Capture</button> -->
+     
+  </form>
+
+ 
+</ion-content>
